@@ -1,5 +1,7 @@
 package classes;
 
+import enums.Status;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -72,8 +74,10 @@ public class Lead {
 
 
     public static void createLeadWithInput() {
+
         Scanner input = new Scanner(System.in);
         String newInput = input.nextLine().toLowerCase();
+
         if (newInput.equals("new lead")) {
             System.out.println("Introduce name");
             String inputName = input.nextLine().toLowerCase();
@@ -85,6 +89,8 @@ public class Lead {
             String inputCompanyName = input.nextLine().toLowerCase();
             Lead lead = new Lead(inputName, inputPhoneNumber, inputEmail, inputCompanyName);
             addLeadToList(lead);
+            System.out.println("Lead created successfully: " + lead);
+
         } else {
             System.out.println("Please try again with 'new lead'");
             createLeadWithInput();
@@ -116,14 +122,32 @@ public class Lead {
 
     }
 
-    public static void convertLeadToOp(List<Lead> leads) {
+    public static void convertLeadToOpportunity(List<Lead> leads) {
+
         Scanner input = new Scanner(System.in);
         String newInput = input.nextLine().toLowerCase();
+
         for (Lead lead : leads) {
             String num = String.valueOf(lead.getId());
             if (newInput.equals("convert " + num)) {
-                System.out.println("Encontrado: " + lead.getName());
+                System.out.println("Lead found: " + lead.getName());
+                Contact contact = new Contact(lead.getName(), lead.getPhoneNumber(), lead.getEmail(), lead.getCompanyName());
+                System.out.println("New Contact created from this lead: " + contact);
+                Opportunity opportunity = new Opportunity(contact, Status.OPEN);
+                System.out.println("New Opportunity created from this lead: " + opportunity);
+
             }
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Lead{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", email='" + email + '\'' +
+                ", companyName='" + companyName + '\'' +
+                '}';
     }
 }

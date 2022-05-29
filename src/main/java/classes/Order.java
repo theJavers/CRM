@@ -1,4 +1,4 @@
-package classes;
+/*package classes;
 
 import enums.Industry;
 import enums.Products;
@@ -10,9 +10,10 @@ public class Order {
     private Products product;
     private int quantity;
 
-    public Order(int quantity) {
+    public Order(int quantity, Products product) {
         this.id = counter++;
-        this.quantity = quantity;
+        setProduct(product);
+        setQuantity(quantity);
     }
 
     public int getId() {
@@ -43,3 +44,4 @@ public class Order {
         this.quantity = quantity;
     }
 }
+*/

@@ -11,4 +11,18 @@ public class Contact extends Lead {
     public int getContactId() {
         return contactId;
     }
+
+
+    @Override
+    public String toString() {
+        return "Contact{" +
+                "id=" + this.contactId +
+                ", name='" + this.getName() + '\'' +
+                ", phoneNumber='" + this.getPhoneNumber() + '\'' +
+                ", email='" + this.getEmail() + '\'' +
+                ", companyName='" + this.getCompanyName() + '\'' +
+                '}';
+    }
+
+
 }
