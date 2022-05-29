@@ -9,13 +9,16 @@ import java.util.Scanner;
 public class Opportunity {
     private final int opId;
     private static int counter = 1;
-    private Order order;
+    private Products product;
+    private int quantity;
     private Contact decisionMaker;
     private Status status;
 
-    public Opportunity(Order order, Contact decisionMaker, Status status) {
+    public Opportunity(Contact decisionMaker, Status status) {
+
         this.opId = counter++;
-        setOrder(order);
+        setProduct();
+        setQuantity();
         setDecisionMaker(decisionMaker);
         setStatus(status);
     }
@@ -24,12 +27,37 @@ public class Opportunity {
         return opId;
     }
 
-    public Order getOrder() {
-        return order;
+    public Products getProduct() {
+        return product;
     }
 
-    public void setOrder(Order order) {
-        this.order = order;
+    public void setProduct() {
+
+        Scanner input = new Scanner(System.in);
+
+            System.out.println("Choose a Product: ");
+            for (Products p : Products.values()){
+                System.out.println(p);
+            }
+            Products inputProduct = Products.valueOf(input.next().toUpperCase());
+            this.product = inputProduct;
+        System.out.println("Done, you selected the product: " + inputProduct);
+
+        }
+
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity() {
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Introduce quantity");
+        int inputQuantity = input.nextInt();
+        this.quantity = inputQuantity;
+        System.out.println("Done, the quantity is: " + inputQuantity);
     }
 
     public Contact getDecisionMaker() {
@@ -48,5 +76,14 @@ public class Opportunity {
         this.status = status;
     }
 
-
+    @Override
+    public String toString() {
+        return "Opportunity{" +
+                "opId=" + opId +
+                ", product=" + product +
+                ", quantity=" + quantity +
+                ", decisionMaker=" + decisionMaker +
+                ", status=" + status +
+                '}';
+    }
 }
