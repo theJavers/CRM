@@ -135,7 +135,7 @@ public class Lead {
                 System.out.println("New Contact created from this lead: " + contact);
                 Opportunity opportunity = new Opportunity(contact, Status.OPEN);
                 System.out.println("New Opportunity created from this lead: " + opportunity);
-
+                allLeads.remove(counter); //eliminar Lead actual
             }
         }
     }

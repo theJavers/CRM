@@ -7,5 +7,7 @@ public class Main {
 
         Lead.createLeadWithInput();
         Lead.convertLeadToOpportunity(Lead.getAllLeads());
+
+
     }
 }
