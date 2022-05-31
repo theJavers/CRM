@@ -100,6 +100,7 @@ public class Lead {
     public static void showAllLeads() {
         Scanner input = new Scanner(System.in);
         String newInput = input.nextLine().toLowerCase();
+        System.out.println("Write 'show leads' to get all leads list");
         if (newInput.equals("show leads")) {
             for (Lead lead : allLeads) {
                 System.out.println("Lead id: " + lead.getId() + "\n Lead name: " + lead.getName() + "\n =======");
@@ -126,16 +127,19 @@ public class Lead {
 
         Scanner input = new Scanner(System.in);
         String newInput = input.nextLine().toLowerCase();
-
-        for (Lead lead : leads) {
-            String num = String.valueOf(lead.getId());
-            if (newInput.equals("convert " + num)) {
-                System.out.println("Lead found: " + lead.getName());
-                Contact contact = new Contact(lead.getName(), lead.getPhoneNumber(), lead.getEmail(), lead.getCompanyName());
-                System.out.println("New Contact created from this lead: " + contact);
-                Opportunity opportunity = new Opportunity(contact, Status.OPEN);
-                System.out.println("New Opportunity created from this lead: " + opportunity);
-
+        int counter = 0;
+        while (counter < leads.size()) {
+            for (Lead lead : leads) {
+                String num = String.valueOf(lead.getId());
+                counter++;
+                if (newInput.equals("convert " + num)) {
+                    System.out.println("Lead found: " + lead.getName());
+                    Contact contact = new Contact(lead.getName(), lead.getPhoneNumber(), lead.getEmail(), lead.getCompanyName());
+                    System.out.println("New Contact created from this lead: " + contact);
+                    Opportunity opportunity = new Opportunity(contact, Status.OPEN);
+                    System.out.println("New Opportunity created from this lead: " + opportunity);
+                    // CREAR ACCOUNT
+                }
             }
         }
     }
