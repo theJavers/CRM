@@ -65,10 +65,16 @@ public class Lead {
     }
 
     public static void addLeadToList(Lead lead) {
+        if(lead == null){
+            throw new IllegalArgumentException();
+        }
         allLeads.add(lead);
     }
 
     public static void removeLead(Lead lead) {
+        if(lead == null){
+            throw new IllegalArgumentException();
+        }
         allLeads.remove(lead);
     }
 
