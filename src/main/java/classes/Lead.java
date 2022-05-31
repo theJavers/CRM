@@ -1,5 +1,6 @@
 package classes;
 
+import enums.Industry;
 import enums.Status;
 
 import java.util.ArrayList;
@@ -135,6 +136,17 @@ public class Lead {
                 System.out.println("New Contact created from this lead: " + contact);
                 Opportunity opportunity = new Opportunity(contact, Status.OPEN);
                 System.out.println("New Opportunity created from this lead: " + opportunity);
+
+                // Account created
+
+
+
+
+
+                Account account = new Account(lead.getCompanyName(), contact, opportunity);
+                System.out.println("New account ACCOUNT from this lead: " + account);
+                // account created
+
 
             }
         }
