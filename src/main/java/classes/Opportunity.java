@@ -67,34 +67,8 @@ public class Opportunity {
         System.out.println("Done, the quantity is: " + inputQuantity);
     }
 
-    //***************************************************************************
-     public void showOpportunity(){
-        Scanner input = new Scanner(System.in);
-        String opportunityNum = input.nextLine().toLowerCase();
-        if(opportunityNum.equals("lookup opportunity" + opportunityNum)) {
-            getOpId();
-            //System.out.println(opportunityList(getOpId()));
-
-        }else{
-            System.out.println("Please add a valid opportunity number");
-        }
-
-    }
 
 
-    public void closeOpportunity(){
-        //Sara types “close-lost 24” and the CRM changes the status of opportunity 24 to “CLOSED-LOST”
-        Scanner input = new Scanner(System.in);
-        String closOpInput = input.nextLine().toLowerCase();
-        if(closOpInput.equals("close-lost 24")){
-            setStatus(CLOSE);
-            System.out.println("Opportunity 24 is CLOSED-LOST");
-        }else{
-            System.out.println("Error");
-        }
-    }
-
-    //*********************************************************************************
 
     public Contact getDecisionMaker() {
         return decisionMaker;
