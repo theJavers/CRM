@@ -23,6 +23,29 @@ public class LeadTest {
         });
     }
 
+    @Test                                                               //falta la lógica de los Tests
+    @DisplayName("Test to check if setEmployeeCount is an Integer")
+    public void setEmployeeCountTest(){
+        assertThrows();
+    }@Test
+    @DisplayName("Test to check if setCity is a String")
+    public void setCityTest(){
+        assertThrows();
+    }
+    @Test
+    @DisplayName("Test to check if setCountry is a String")
+    public void setCityTest(){
+        assertThrows();
+    }
+    @Test
+    @DisplayName("Test to check if setEmployeeCount is an Integer")
+    public void setEmployeeCountTest(){
+        assertThrows();
+    }
+
+
+
+
 
 
 }
