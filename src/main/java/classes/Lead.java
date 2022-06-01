@@ -12,6 +12,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
+import static classes.Opportunity.*;
+import static enums.Status.*;
+
 public class Lead {
     private final int id;
     private static int counter = 1;
@@ -151,6 +154,40 @@ public class Lead {
         }
 
     }
+
+    //metodo que mostra opportunidad por id
+    public static void listOportunitiesId() {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Type lookup opportunity + number");
+        String newInput = input.nextLine().toLowerCase();
+        for (Opportunity opp : allOps) {
+            String num = String.valueOf(opp.getOpId());
+            if(newInput.equals("lookup opportunity "+ num)){
+                System.out.println(opp.toString());
+            }
+            }
+        }
+
+        //********************************************
+        public static void closeOpportunity(){
+            //Sara types “close-lost 24” and the CRM changes the status of opportunity 24 to “CLOSED-LOST”
+            //Opportunity status can be edited using the command “close-lost id” or “close-won id” where “id”
+            // is the id of the Opportunity that should be closed.
+            Scanner input = new Scanner(System.in);
+            String closOpInput = input.nextLine().toLowerCase();
+            for(Opportunity opp : allOps){
+                String num = String.valueOf(opp.getOpId());
+                if(closOpInput.equals("close-lost " + num)){
+                    opp.setStatus(CLOSE);
+                    System.out.println("Opportunity is CLOSED-LOST");
+                }else if(closOpInput.equals("close-won" + num)){
+                    opp.setStatus(CLOSEWON);
+                }
+            }
+
+        }
+
+
 
     public static void convertLeadToOpportunity(List<Lead> leads) {
         Scanner input = new Scanner(System.in);

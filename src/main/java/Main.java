@@ -3,6 +3,8 @@ import classes.Opportunity;
 
 import java.util.Arrays;
 
+import static classes.Lead.listOportunitiesId;
+
 
 public class Main {
 
@@ -16,9 +18,12 @@ public class Main {
 
         Lead.convertLeadToOpportunity(Lead.getAllLeads());
 
-        Lead.listOfOpportunities();
+     //   Lead.listOfOpportunities();
 
+        Lead.listOportunitiesId();
 
         Lead.showAllLeads();
+
+        Lead.closeOpportunity();
     }
 }
