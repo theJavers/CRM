@@ -21,6 +21,9 @@ public class Lead {
     private String companyName;
     private static List<Lead> allLeads = new ArrayList();
 
+    // crear list of opps
+    private static List<Opportunity> allOps = new ArrayList<>();
+
     public Lead(String name, String phoneNumber, String email, String companyName) {
         this.id = counter++;
         this.setPhoneNumber(phoneNumber);
@@ -76,11 +79,12 @@ public class Lead {
         allLeads.add(lead);
     }
 
-    public static void removeLead(Lead lead) {
+    public static List<Lead> removeLead(Lead lead) {
         if(lead == null){
             throw new IllegalArgumentException();
         }
         allLeads.remove(lead);
+        return allLeads;
     }
 
     public static void createLeadWithInput() {
@@ -136,6 +140,18 @@ public class Lead {
 
     }
 
+    // Metodo que printa todas las opportunities
+    public static void listOfOpportunities(){
+        Scanner input = new Scanner(System.in);
+        String newInput = input.nextLine().toLowerCase();
+        if(newInput.equals("show all opportunities")){
+            for(Opportunity a : allOps){
+                System.out.println(allOps.get(allOps.indexOf(a)));
+            }
+        }
+
+    }
+
     public static void convertLeadToOpportunity(List<Lead> leads) {
         Scanner input = new Scanner(System.in);
         String newInput = input.nextLine().toLowerCase();
@@ -149,12 +165,18 @@ public class Lead {
                 Contact contact = new Contact(lead.getName(), lead.getPhoneNumber(), lead.getEmail(), lead.getCompanyName());
                 System.out.println("New Contact created from this lead: " + contact);
                 Opportunity opportunity = new Opportunity(contact, Status.OPEN);
+
+                // Añadimos la opportunity a la lista de opps
+                allOps.add(opportunity);
                 System.out.println("New Opportunity created from this lead: " + opportunity);
+
+                // Creamos account
+
                 Account account = new Account(lead.getCompanyName(), contact, opportunity);
                 System.out.println("New account ACCOUNT from this lead: " + account);
+                //removeLead(lead);
             }
         }
-
     }
 
     public String toString() {

@@ -3,6 +3,7 @@ package classes;
 import enums.Products;
 import enums.Status;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -16,6 +17,7 @@ public class Opportunity {
     private Contact decisionMaker;
     private Status status;
 
+
     public Opportunity(Contact decisionMaker, Status status) {
 
         this.opId = counter++;
@@ -24,6 +26,9 @@ public class Opportunity {
         setDecisionMaker(decisionMaker);
         setStatus(status);
     }
+
+
+
 
     public int getOpId() {
         return opId;
