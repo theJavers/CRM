@@ -18,11 +18,11 @@ public class Opportunity {
     private Status status;
 
 
-    public Opportunity(Contact decisionMaker, Status status) {
+    public Opportunity(Products product, int quantity, Contact decisionMaker, Status status) {
 
         this.opId = counter++;
-        setProduct();
-        setQuantity();
+        setProduct(product);
+        setQuantity(quantity);
         setDecisionMaker(decisionMaker);
         setStatus(status);
     }
@@ -38,18 +38,8 @@ public class Opportunity {
         return product;
     }
 
-    public void setProduct() {
-
-        Scanner input = new Scanner(System.in);
-
-            System.out.println("Choose a Product: ");
-            for (Products p : Products.values()){
-                System.out.println(p);
-            }
-            Products inputProduct = Products.valueOf(input.next().toUpperCase());
-            this.product = inputProduct;
-        System.out.println("Done, you selected the product: " + inputProduct);
-
+    public void setProduct(Products product) {
+        this.product = product;
         }
 
 
@@ -57,15 +47,7 @@ public class Opportunity {
         return quantity;
     }
 
-    public void setQuantity() {
-
-        Scanner input = new Scanner(System.in);
-
-        System.out.println("Introduce quantity");
-        int inputQuantity = input.nextInt();
-        this.quantity = inputQuantity;
-        System.out.println("Done, the quantity is: " + inputQuantity);
-    }
+    public void setQuantity(int quantity) { this.quantity = quantity; }
 
     //***************************************************************************
      public void showOpportunity(){
