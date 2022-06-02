@@ -8,9 +8,10 @@ import java.util.Scanner;
 
 public class Main {
 
-    //// RED
+    //// RESET AND COLORS
     public static final String RESET = "\u001B[0m";
     public static final String RED = "\u001B[31m";
+    public static final String GREEN = "\u001b[32;1m";
     public static final String PURPLE = "\u001B[35m";
     public static final String YELLOW = "\u001B[33m";
 
@@ -20,21 +21,10 @@ public class Main {
 
 
 
-
-
     public static void main(String[] args) throws IOException {
 
         Main main = new Main();
         main.runMenuAndHeader();
-
-
-
-
-
-
-
-
-
 
     }
 
@@ -42,7 +32,6 @@ public class Main {
         switch (choice){
             case 0:
                 System.out.println("See you soon!");
-                Main.runMenuAndHeader();
                 break;
             case 1:
                 Methods.createLeadWithInput();
@@ -53,16 +42,15 @@ public class Main {
                 Main.runMenuAndHeader();
                 break;
             case 3:
-                Methods.convertLeadToOpportunity(Methods.getAllLeads());
+                Methods.convertLeadToOpportunity();
                 Main.runMenuAndHeader();
                 break;
             case 4:
                 Methods.listOfOpportunities();
                 Main.runMenuAndHeader();
             case 5:
-                System.out.println(RED + "Feature not available yet!" + RESET);
+                Methods.closeOpportunity();
                 Main.runMenuAndHeader();
-                break;
             default:
                 System.out.println(ANSI_RED_BACKGROUND + "An error has occoured." + ANSI_RESET_BACK);
 
@@ -88,9 +76,9 @@ public class Main {
     }
 
     private static void printMenu(){
-        System.out.println(ANSI_RED_BACKGROUND+ "Please, choose one of the following options:" + ANSI_RESET_BACK);
+        System.out.println(PURPLE + "Please, choose one of the following options:" + RESET);
         System.out.println("1) New lead.");
-        System.out.println("2) Show all leads. There are currently ---------->    " + YELLOW + Methods.allLeads.size() + "  leads." + RESET);
+        System.out.println("2) Show all leads. There are currently ---------->    " + YELLOW + Methods.allLeads.size() +  "  leads." + RESET);
         System.out.println("3) Convert lead to opportunity + /lead id/.");
         System.out.println("4) Show all opportunities. There are currently -->    " + RED + Methods.allOps.size() + "  opportunities." + RESET);
         System.out.println("5) Update an opportunity.");
@@ -113,6 +101,5 @@ public class Main {
         }
         return choice;
     }
-
 
 }

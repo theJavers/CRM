@@ -3,11 +3,6 @@ package classes;
 import enums.Products;
 import enums.Status;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-
-import static enums.Status.CLOSE;
 
 public class Opportunity {
     private final int opId;
@@ -50,6 +45,8 @@ public class Opportunity {
     public void setQuantity(int quantity) { this.quantity = quantity; }
 
     //***************************************************************************
+
+    /*
      public void showOpportunity(){
         Scanner input = new Scanner(System.in);
         String opportunityNum = input.nextLine().toLowerCase();
@@ -64,18 +61,8 @@ public class Opportunity {
     }
 
 
-    public void closeOpportunity(){
-        //Sara types “close-lost 24” and the CRM changes the status of opportunity 24 to “CLOSED-LOST”
-        Scanner input = new Scanner(System.in);
-        String closOpInput = input.nextLine().toLowerCase();
-        if(closOpInput.equals("close-lost 24")){
-            setStatus(CLOSE);
-            System.out.println("Opportunity 24 is CLOSED-LOST");
-        }else{
-            System.out.println("Error");
-        }
-    }
 
+*/
     //*********************************************************************************
 
     public Contact getDecisionMaker() {

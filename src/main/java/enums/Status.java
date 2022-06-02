@@ -3,6 +3,7 @@ package enums;
 public enum Status {
 
     OPEN,
-    CLOSE;
+    CLOSE_WON,
+    CLOSE_LOST;
 
 }
